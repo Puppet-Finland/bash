@@ -6,7 +6,7 @@ and per-user .bashrc configurations are supported.
 # Module usage
 
 * [Class: bash](manifests/init.pp)
-* [Class: bash](manifests/config/user.pp)
+* [Define: bash::config::user](manifests/config/user.pp)
 
 # Dependencies
 
