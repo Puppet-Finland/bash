@@ -17,6 +17,7 @@ See [metadata.json](metadata.json).
 This module has been tested on
 
 * Debian 8
+* Ubuntu 14.04
 
 Any UNIX-style operating system should work out of the box or with minor 
 modifications. For details see [params.pp](manifests/params.pp).
