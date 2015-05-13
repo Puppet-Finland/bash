@@ -25,7 +25,13 @@ define bash::config::user
 )
 {
     $username = $title
-    $basedir = "${::os::params::home}/${username}"
+
+    # Root's home directory is not under /home
+    $basedir = $username ? {
+        'root'  => '/root',
+        default => "${::os::params::home}/${username}"
+    }
+
     $fragmentdir = "${basedir}/.bashrc.d"
     $fragmentfile = "${fragmentdir}/puppet-${username}.bashrc"
 
