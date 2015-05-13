@@ -50,12 +50,12 @@ class bash
 
 if $manage == 'yes' {
 
-    class { 'bash::install':
+    class { '::bash::install':
         ensure => $ensure,
     }
 
-    class { 'bash::config':
-        ensure => $ensure,
+    class { '::bash::config':
+        ensure      => $ensure,
         userconfigs => $userconfigs,
     }
 }
