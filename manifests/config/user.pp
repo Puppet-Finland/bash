@@ -53,11 +53,11 @@ define bash::config::user
     # we just unmanage the directory, so that a recursive deletion does not 
     # wreak any havoc by mistake.
     file { "bash-${fragmentdir}":
-        ensure => $fragmentdir_ensure,
-        name   => $fragmentdir,
-        owner  => $username,
-        group  => $username,
-        mode   => '0750',
+        ensure  => $fragmentdir_ensure,
+        name    => $fragmentdir,
+        owner   => $username,
+        group   => $username,
+        mode    => '0750',
         require => User[$username],
     }
 
