@@ -41,7 +41,6 @@ define bash::config::user
         ensure  => $ensure,
         path    => "${basedir}/.bashrc",
         line    => '. ~/.bashrc.d/*.bashrc',
-        require => User[$username],
     }
 
     $fragmentdir_ensure = $ensure ? {
@@ -58,7 +57,6 @@ define bash::config::user
         owner   => $username,
         group   => $username,
         mode    => '0750',
-        require => User[$username],
     }
 
     # Add the user-specific .bashrc fragment. Currently only one static per-user 
