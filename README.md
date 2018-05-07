@@ -5,22 +5,17 @@ and per-user .bashrc configurations are supported.
 
 # Module usage
 
-* [Class: bash](manifests/init.pp)
-* [Define: bash::config::user](manifests/config/user.pp)
+Ensure Bash is installed:
 
-# Dependencies
+    include ::bash
 
-See [metadata.json](metadata.json).
+Install a bashrc configuration fragment from Puppet fileserver for a particular
+user:
 
-# Operating system support
-
-This module has been tested on
-
-* Debian 8
-* Ubuntu 14.04
-
-Any UNIX-style operating system should work out of the box or with minor 
-modifications. For details see [params.pp](manifests/params.pp).
+    include ::bash
+    
+    # Installs puppet-joe.bashrc from the "files" share on the Puppet Fileserver
+    ::bash::config::user { 'joe': }
 
 Note that operating systems which don't create per-user groups will not work out 
 of the box if per-user .bashrc configurations are used. This is because owning 
