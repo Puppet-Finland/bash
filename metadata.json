@@ -2,7 +2,7 @@
   "name": "puppetfinland-bash",
   "version": "0.1.2",
   "author": "Puppet-Finland team",
-  "license": "BSD license",
+  "license": "BSD-2-Clause",
   "summary": "Setup bash",
   "source": "https://github.com/Puppet-Finland/bash.git",
   "project_page": "https://github.com/Puppet-Finland/bash",
