@@ -38,9 +38,9 @@ define bash::config::user
     # Make sure the .bashrc fragments are loaded from the main .bashrc file
     # which is, for the most part, not managed by Puppet.
     file_line { "bash-${basedir}-.bashrc-fragment-loader-line":
-        ensure  => $ensure,
-        path    => "${basedir}/.bashrc",
-        line    => '. ~/.bashrc.d/*.bashrc',
+        ensure => $ensure,
+        path   => "${basedir}/.bashrc",
+        line   => '. ~/.bashrc.d/*.bashrc',
     }
 
     $fragmentdir_ensure = $ensure ? {
@@ -52,11 +52,11 @@ define bash::config::user
     # we just unmanage the directory, so that a recursive deletion does not 
     # wreak any havoc by mistake.
     file { "bash-${fragmentdir}":
-        ensure  => $fragmentdir_ensure,
-        name    => $fragmentdir,
-        owner   => $username,
-        group   => $username,
-        mode    => '0750',
+        ensure => $fragmentdir_ensure,
+        name   => $fragmentdir,
+        owner  => $username,
+        group  => $username,
+        mode   => '0750',
     }
 
     # Add the user-specific .bashrc fragment. Currently only one static per-user 
