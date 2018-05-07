@@ -6,8 +6,8 @@
 # == Parameters
 #
 # [*manage*]
-#   Whether to manage bash using Puppet. Valid values 'yes' (default) and 
-#   'no'.
+#   Whether to manage bash using Puppet. Valid values true (default) and 
+#   false.
 # [*ensure*]
 #   Status of bash. Valid values 'present' (default) and 'absent'.
 # [*userconfigs*]
@@ -41,14 +41,14 @@
 #
 class bash
 (
-    $manage = 'yes',
-    $ensure = 'present',
-    $userconfigs = {}
+    Boolean                  $manage = true,
+    Enum['present','absent'] $ensure = 'present',
+    Hash                     $userconfigs = {}
 
 ) inherits bash::params
 {
 
-if $manage == 'yes' {
+if $manage {
 
     class { '::bash::install':
         ensure => $ensure,
