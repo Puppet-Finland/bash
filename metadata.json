@@ -1,6 +1,6 @@
 {
   "name": "puppetfinland-bash",
-  "version": "0.1.2",
+  "version": "1.0.0",
   "author": "Puppet-Finland team",
   "summary": "Setup bash and user specific bashrc fragments",
   "license": "BSD-2-Clause",
