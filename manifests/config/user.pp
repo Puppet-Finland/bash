@@ -21,10 +21,16 @@
 #
 define bash::config::user
 (
-    $ensure = 'present'
+    Enum['present', 'absent'] $ensure = 'present',
+    Optional[String]          $source = undef
 )
 {
     $username = $title
+
+    $l_source = $source ? {
+      default => $source,
+      undef   => "puppet:///files/${username}.bashrc",
+    }
 
     # Root's home directory is not under /home
     $basedir = $username ? {
@@ -64,7 +70,7 @@ define bash::config::user
     file { "bash-${fragmentfile}":
         ensure  => $ensure,
         name    => $fragmentfile,
-        source  => "puppet:///files/${username}.bashrc",
+        source  => $l_source,
         owner   => $username,
         group   => $username,
         mode    => '0750',
